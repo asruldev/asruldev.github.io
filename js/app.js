@@ -44,10 +44,11 @@ function replay() {
 }
 
 function countDown() {
-  if (currentTime <= 0) {
+  if (currentTime === 0) {
     clearInterval(countDownTimerId);
     clearInterval(timerId);
     alert("GAME OVER! Your final score is " + result);
+    timeLeft.textContent = 0
   } else {
     currentTime--;
     timeLeft.textContent = currentTime;
