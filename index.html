@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Asrul Harahap - CV & Portofolio</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="ubuntu-topbar">
+    <div class="topbar-left">● Ubuntu 24 Portfolio</div>
+    <div class="topbar-center" id="ubuntu-clock">--:--:--</div>
+    <div class="topbar-right">asruldev <span style="font-size:1.2em;">🟢</span></div>
+  </div>
+  <div class="ubuntu-dock">
+    <div class="dock-icon" id="dockBrowser" title="Show Portfolio Window">🖥️<span class="dock-indicator"></span></div>
+    <div class="dock-icon" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})" title="About">👤<span class="dock-indicator"></span></div>
+    <div class="dock-icon" onclick="document.getElementById('experience').scrollIntoView({behavior:'smooth'})" title="Experience">💼<span class="dock-indicator"></span></div>
+    <div class="dock-icon" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})" title="Portfolio">🗂️<span class="dock-indicator"></span></div>
+    <div class="dock-icon" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" title="Contact">✉️<span class="dock-indicator"></span></div>
+  </div>
+  
+  <main>
+    <div class="browser-window" id="browserWindow">
+      <div class="browser-bar">
+        <span class="drag-btn" id="dragBtn" title="Drag window">⠿</span>
+        <span class="window-btn close" id="btnClose"></span>
+        <span class="window-btn min" id="btnMin"></span>
+        <span class="window-btn max" id="btnMax"></span>
+        <img src="assets/profile.jpg" alt="Favicon" class="browser-favicon">
+        <input class="browser-address" value="https://asruldev.github.io" readonly />
+      </div>
+      <div class="browser-content">
+        <section>
+            <h1>Asrul Harahap</h1>
+            <span>Frontend Developer</span> |
+            <span>React, Node.js, TypeScript</span>
+        </section>
+
+        <section id="about">
+          <h2>About Me</h2>
+          <p>As a Developer with 6+ years of experience in React, Node.js, and TypeScript, building scalable web apps with performance-optimized UIs, robust APIs, and cloud-based deployment. Passionate about clean code, efficient architecture, and seamless user experiences.</p>
+          
+          <div class="about-details">
+            <div class="about-item">
+              <h3>🎯 Core Expertise</h3>
+              <p>Specialized in modern web development with focus on React ecosystem, full-stack development with Node.js, and type-safe development using TypeScript. Experienced in building enterprise-level applications that handle high traffic and complex business logic.</p>
+            </div>
+            
+            <div class="about-item">
+              <h3>🚀 Technical Skills</h3>
+              <p>Proficient in frontend frameworks (React, Next.js), backend development (Node.js, Express), database management (MongoDB, PostgreSQL), cloud services (AWS, Vercel), and modern development tools (Git, Docker, CI/CD).</p>
+            </div>
+            
+            <div class="about-item">
+              <h3>💡 Development Philosophy</h3>
+              <p>Believe in writing maintainable, scalable code that follows best practices and industry standards. Focus on creating intuitive user interfaces, optimizing performance, and ensuring robust error handling and security measures.</p>
+            </div>
+            
+            <div class="about-item">
+              <h3>🌱 Continuous Learning</h3>
+              <p>Always staying updated with the latest technologies and industry trends. Actively contribute to open-source projects, participate in developer communities, and share knowledge through technical writing and mentoring.</p>
+            </div>
+          </div>
+        </section>
+        
+        <section id="experience">
+          <h2>Work Experience</h2>
+          <div class="experience-item">
+            <h3>Frontend Developer</h3>
+            <p class="company">PT SiCepat Ekspres Indonesia</p>
+            <p class="period">2021 - Present</p>
+            <p>Developed and maintained the company's customer-facing web platform using React, TypeScript, and React Query, ensuring high performance and scalability. Implemented UI components with Ant Design and Emotion/Styled Components for a visually appealing and consistent user experience.</p>
+            <div class="project-details">
+              <h4>Key Projects & Systems:</h4>
+              <ul>
+                <li><strong>Chatbot:</strong> UI for training LLM with Rasa X</li>
+                <li><strong>Operational Systems:</strong> CKL (Cargoloka), SST (SiCepat Shipping Tools), COD (Cash on Delivery)</li>
+                <li><strong>Management Tools:</strong> CMS (Content Management System), Masterdata, DMS (Document Management System)</li>
+                <li><strong>HR Dashboards:</strong> KPI (Key Performance Indicators) and NME (New Master Employee)</li>
+              </ul>
+              <p>Collaborated with backend teams to optimize API interactions and data flow.</p>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <h3>Frontend Mentor / Instructor</h3>
+            <p class="company">RuangGuru - Kampus Merdeka</p>
+            <p class="period">2022</p>
+            <p>Mentored and taught 50+ students in mastering frontend development fundamentals.</p>
+            <div class="project-details">
+              <h4>Teaching Areas:</h4>
+              <ul>
+                <li><strong>Core Web Technologies:</strong> HTML, CSS, JavaScript (ES6+)</li>
+                <li><strong>Modern Frameworks:</strong> React.js with state management (Redux/Zustand)</li>
+                <li><strong>Version Control & Collaboration:</strong> Git workflows (branching, merging) and team-based project best practices</li>
+                <li><strong>Problem Solving:</strong> Guided students through algorithmic problem-solving to enhance logical thinking and code efficiency</li>
+              </ul>
+              <p>Conducted code reviews, provided personalized feedback, and facilitated hands-on projects. Assisted in curriculum development to align with industry standards.</p>
+            </div>
+          </div>
+          
+          <div class="experience-item">
+            <h3>Full Stack Developer</h3>
+            <p class="company">Maleo Kretif Indonesia</p>
+            <p class="period">2019 - 2021</p>
+            <p>Built and optimized cross-platform solutions using React (Web) and React Native (Mobile) with Express.js backend and MySQL, ensuring seamless data synchronization and responsive UX.</p>
+            <div class="project-details">
+              <h4>Key Projects:</h4>
+              <ul>
+                <li><strong>IVPL Web & Mobile:</strong> Cross-platform solution with React (Web) and React Native (Mobile)</li>
+                <li><strong>Timesheet Management System:</strong> Internal tool with role-based access, automated reporting, and WFH workflow support (improved team productivity by 40%)</li>
+                <li><strong>Samsung Fold|Flip Campaign Microsite:</strong> High-performance marketing site with SEO optimization and interactive animations</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+        <section id="education">
+          <h2>Education</h2>
+          <div class="education-item">
+            <h3>Fullstack Immersive Javascript</h3>
+            <p class="institution">Hacktiv8 Indonesia</p>
+            <p class="period">2018 - 2018 (5-10)</p>
+            <p>Intensive bootcamp program for fullstack development with JavaScript, React, Node.js, and other modern technologies.</p>
+          </div>
+          
+          <div class="education-item">
+            <h3>Bachelor of Education (TI)</h3>
+            <p class="institution">Padang State University</p>
+            <p class="period">2013 - 2017</p>
+            <p>Formal education in Information Technology with focus on education and system development.</p>
+          </div>
+        </section>
+        
+        <section id="skills">
+          <h2>Skills & Abilities</h2>
+          <h3>Frontend Development</h3>
+          <ul class="skills">
+            <li>React.js</li>
+            <li>TypeScript</li>
+            <li>JavaScript (ES6+)</li>
+            <li>HTML5 & CSS3</li>
+            <li>React Query</li>
+            <li>Redux/Zustand</li>
+          </ul>
+          
+          <h3>UI/UX & Styling</h3>
+          <ul class="skills">
+            <li>Ant Design</li>
+            <li>Emotion/Styled Components</li>
+            <li>Responsive Design</li>
+            <li>CSS-in-JS</li>
+            <li>Material-UI</li>
+          </ul>
+          
+          <h3>Backend & Database</h3>
+          <ul class="skills">
+            <li>Node.js</li>
+            <li>Express.js</li>
+            <li>MySQL</li>
+            <li>RESTful APIs</li>
+            <li>API Integration</li>
+            <li>Database Design</li>
+          </ul>
+          
+          <h3>Mobile Development</h3>
+          <ul class="skills">
+            <li>React Native</li>
+            <li>Cross-platform Development</li>
+            <li>Mobile UI/UX</li>
+            <li>App Store Deployment</li>
+          </ul>
+          
+          <h3>Development Tools</h3>
+          <ul class="skills">
+            <li>Git & GitHub</li>
+            <li>VS Code</li>
+            <li>Webpack</li>
+            <li>npm/yarn</li>
+            <li>Chrome DevTools</li>
+            <li>Postman</li>
+          </ul>
+          
+          <h3>Soft Skills</h3>
+          <ul class="skills">
+            <li>Mentoring & Teaching</li>
+            <li>Code Review</li>
+            <li>Problem Solving</li>
+            <li>Team Collaboration</li>
+            <li>Agile/Scrum</li>
+            <li>Technical Writing</li>
+          </ul>
+        </section>
+        
+        <section id="portfolio">
+          <h2>Portfolio & Showcase</h2>
+          <div class="portfolio-list">
+            <div class="portfolio-item">
+              <img src="assets/project1.jpg" alt="TypeScript Playground & Docs">
+              <h4>TypeScript Playground & Docs</h4>
+              <p>An interactive web playground and documentation site for learning, testing, and sharing TypeScript code. Features live code editing, instant preview, and code sharing for the TypeScript community.</p>
+              <a href="https://ts.asrul.dev" target="_blank">View Project</a>
+            </div>
+            <div class="portfolio-item">
+              <img src="assets/project2.jpg" alt="WordSensor Playground">
+              <h4>WordSensor Playground</h4>
+              <p><strong>WordSensor</strong> is a powerful and flexible <b>npm package</b> for word filtering and moderation. It includes profanity, spam, and phishing filters, regex pattern matching, batch processing, and a real-time statistics dashboard.<br>
+              You can <b>download and install</b> it directly from <a href="https://www.npmjs.com/package/word-sensor" target="_blank">npm</a> with:<br>
+              <code>npm install npm i word-sensor</code><br>
+              Use it in your Node.js or browser projects for advanced text moderation and content safety.</p>
+              <a href="https://asruldev.github.io/word-sensor/" target="_blank">View Playground</a>
+              <a href="https://www.npmjs.com/package/word-sensor" target="_blank" style="display:block;margin-top:0.3em;color:#e95420;font-weight:600;">Download on npm</a>
+            </div>
+            <div class="portfolio-item">
+              <img src="assets/project3.jpg" alt="Sikits">
+              <h4>Sikits</h4>
+              <p><strong>Sikits</strong> is a comprehensive <b>utility library</b> for JavaScript and TypeScript, featuring <b>200+ functions</b> for string, number, array, and object manipulation. Includes specialized utilities for Indonesian document validation (KTP, NPWP, phone, bank, etc.), currency/date formatting, and more. <br>
+              <b>TypeScript ready</b>, zero dependencies, and fully tested.<br>
+              You can <b>download and install</b> it directly from <a href="https://www.npmjs.com/package/sikits" target="_blank">npm</a> with:<br>
+              <code>npm install sikits</code>
+              </p>
+              <a href="https://asruldev.github.io/sikits/" target="_blank">View Playground</a>
+              <a href="https://www.npmjs.com/package/sikits" target="_blank" style="display:block;margin-top:0.3em;color:#e95420;font-weight:600;">Download on npm</a>
+            </div>
+            <div class="portfolio-item">
+              <img src="assets/project4.jpg" alt="Coding Problems">
+              <h4>Coding Problems</h4>
+              <p>A curated collection of coding challenges and solutions. Ideal for practicing algorithms, data structures, and preparing for technical interviews. Features categorized problems and detailed explanations.</p>
+              <a href="https://asruldev.github.io/coding-problems/" target="_blank">View Project</a>
+            </div>
+          </div>
+        </section>
+        
+        <section id="awards">
+          <h2>Certifications & Achievements</h2>
+          <div class="award-item">
+            <h3>Certified Web Design & Development Trainer</h3>
+            <p class="period">2018 - Indonesia's National Student Competency Competition (LKS) XXVI, Lombok</p>
+            <p>Served as official trainer and mentor for Indonesia's National Student Competency Competition (LKS) XXVI, 2018 in Lombok.</p>
+            <div class="project-details">
+              <h4>Training Delivered:</h4>
+              <ul>
+                <li>HTML5, CSS3, JavaScript (ES6+)</li>
+                <li>API integration (RESTful services)</li>
+                <li>Responsive web design (mobile-first approach)</li>
+                <li>SEO best practices</li>
+              </ul>
+              <h4>Student Projects Guided:</h4>
+              <ul>
+                <li>Functional e-commerce websites</li>
+                <li>Interactive browser-based games</li>
+              </ul>
+              <p>Focused on industry-relevant skills bridging education and professional standards.</p>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <h3>Fullstack JavaScript Immersive Bootcamp Certification</h3>
+            <p class="period">2018 - Hacktiv8 Indonesia</p>
+            <p>Completed intensive training in fullstack JavaScript development, covering comprehensive modern web development technologies.</p>
+            <div class="project-details">
+              <h4>Curriculum Covered:</h4>
+              <ul>
+                <li><strong>Fundamentals:</strong> Intro to programming, JavaScript logic, and algorithms</li>
+                <li><strong>Backend:</strong> Node.js, RESTful APIs, and databases (MySQL, MongoDB, Sequelize)</li>
+                <li><strong>Frontend:</strong> Vue.js, React.js, and modern UI development</li>
+                <li><strong>Mobile:</strong> React Native for cross-platform mobile development</li>
+                <li><strong>Testing:</strong> Unit and integration testing best practices</li>
+              </ul>
+              <h4>Final Project - PITI (Financial Tracking Mobile App):</h4>
+              <ul>
+                <li>Served as Backend Developer</li>
+                <li>Designed and implemented RESTful APIs with Node.js</li>
+                <li>Managed database architecture (MySQL/MongoDB) for secure transaction data</li>
+                <li>Collaborated with frontend teams to ensure seamless integration</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="award-item">
+            <h3>Certified Frontend Development Trainer</h3>
+            <p class="period">2022 - RuangGuru Kampus Merdeka</p>
+            <p>Successfully trained and mentored 50+ students in frontend development fundamentals.</p>
+            <div class="project-details">
+              <h4>Comprehensive Curriculum Coverage:</h4>
+              <ul>
+                <li>Programming fundamentals and problem-solving logic</li>
+                <li>Modern JavaScript (ES6+ syntax and features)</li>
+                <li>React.js framework with component-based architecture</li>
+                <li>State management solutions (Context API, Redux, etc.)</li>
+                <li>API implementation (RESTful services integration)</li>
+                <li>Career guidance (Portfolio building strategies)</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        
+        <section id="contact">
+          <h2>Contact</h2>
+          <div class="contact-info">
+            <p><strong>Phone:</strong> <a href="tel:+6281211752502">+62 812-1175-2502</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/6282118000821" target="_blank">+62 821-1800-0821</a></p>
+            <p><strong>Email:</strong> <a href="mailto:talkasrul@gmail.com">talkasrul@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/asruldev" target="_blank">linkedin.com/in/asruldev</a></p>
+            <p><strong>GitHub:</strong> <a href="https://github.com/asruldev" target="_blank">github.com/asruldev</a></p>
+          </div>
+          <div class="cover-letter">
+            <h3>Cover Letter</h3>
+            <p>I plan to return to experiencing enjoyable and satisfying work experiences with large companies specializing in frontline customer service, retail operations, training & development, or junior managerial level. I would enjoy the opportunity to speak with you or someone in your organization to see where my skill set would provide the greatest benefit to your company.</p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  <div id="contextMenu" class="custom-context-menu">
+    <div class="menu-item" id="menuRefresh">🔄 Refresh</div>
+    <div class="menu-item" id="menuTheme">🌓 Switch Dark/Light</div>
+  </div>
+  <script src="assets/script.js"></script>
+  <script>
+    // Ubuntu style clock
+    function updateClock() {
+      const now = new Date();
+      const h = String(now.getHours()).padStart(2, '0');
+      const m = String(now.getMinutes()).padStart(2, '0');
+      const s = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById('ubuntu-clock').textContent = `${h}:${m}:${s}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html> 

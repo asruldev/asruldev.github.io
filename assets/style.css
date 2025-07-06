@@ -1,0 +1,662 @@
+body {
+  font-family: 'Ubuntu', 'Segoe UI', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #77216f 0%, #e95420 100%);
+  color: #222;
+  transition: background 0.3s, color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Custom wallpaper (replace with your own image if needed) */
+body.has-wallpaper::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  background: url('assets/wallpaper.jpg') center center/cover no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Top bar ala Ubuntu */
+.ubuntu-topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 38px;
+  background: rgba(30, 30, 30, 0.97);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 100;
+  padding: 0 1.2rem;
+  font-size: 0.98rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  letter-spacing: 0.5px;
+}
+.ubuntu-topbar .topbar-left {
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 1.05em;
+}
+.ubuntu-topbar .topbar-center {
+  font-family: monospace;
+  font-size: 1em;
+}
+.ubuntu-topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 0.95em;
+}
+
+/* Dock kiri ala Ubuntu */
+.ubuntu-dock {
+  position: fixed;
+  top: 38px;
+  left: 0;
+  width: 60px;
+  height: calc(100vh - 38px);
+  background: rgba(30, 30, 30, 0.98);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.7rem 0;
+  gap: 1.1rem;
+  z-index: 99;
+}
+.ubuntu-dock .dock-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: transparent;
+  color: #fff;
+  font-size: 1.7rem;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.18s;
+  position: relative;
+}
+.ubuntu-dock .dock-icon:hover, .ubuntu-dock .dock-icon.active {
+  background: #e95420;
+  color: #fff;
+  transform: scale(1.09);
+}
+.ubuntu-dock .dock-indicator {
+  position: absolute;
+  left: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #e95420;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.ubuntu-dock .dock-icon.active .dock-indicator,
+.ubuntu-dock .dock-icon:hover .dock-indicator {
+  opacity: 1;
+}
+
+/* Main content offset by dock and topbar */
+main {
+  width: 100vw;
+  min-height: calc(100vh - 38px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background: transparent;
+  z-index: 10;
+  position: relative;
+  margin-top: 38px;
+  padding: 2.5rem 0 2.5rem 0;
+  box-sizing: border-box;
+}
+
+/* Window style for portfolio */
+.portfolio-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.portfolio-item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.10);
+  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  margin-bottom: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.18s, transform 0.18s;
+}
+.portfolio-item:hover {
+  box-shadow: 0 8px 32px rgba(233,84,32,0.13);
+  transform: translateY(-3px) scale(1.012);
+}
+.portfolio-item img {
+  width: 100%;
+  max-width: 120px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+}
+.portfolio-item h4 {
+  margin: 0.5rem 0 0.3rem 0;
+  font-size: 1.18em;
+  font-weight: bold;
+}
+.portfolio-item p {
+  font-size: 1em;
+  margin-bottom: 1.1rem;
+}
+.portfolio-item a {
+  color: #0077b6;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: auto;
+}
+@media (max-width: 900px) {
+  .portfolio-list {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+}
+@media (max-width: 600px) {
+  .portfolio-list {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  .portfolio-item {
+    width: 100%;
+    padding: 1.1rem 0.7rem 1rem 0.7rem;
+  }
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  border: 3px solid #0077b6;
+}
+.tagline {
+  color: #0077b6;
+  font-weight: 500;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  background: #0077b6;
+  padding: 0.5rem 0;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+nav a:hover {
+  color: #90e0ef;
+}
+section {
+  margin-bottom: 2.5rem;
+}
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+.skills li {
+  background: #caf0f8;
+  color: #0077b6;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.95rem;
+}
+.about-details {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.about-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #0077b6;
+}
+
+.about-item h3 {
+  color: #0077b6;
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+}
+
+.about-item p {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.project-details {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.project-details h4 {
+  color: #0077b6;
+  margin: 0 0 0.8rem 0;
+  font-size: 1rem;
+}
+
+.project-details ul {
+  margin: 0.5rem 0;
+  padding-left: 1.2rem;
+}
+
+.project-details li {
+  margin: 0.3rem 0;
+  line-height: 1.5;
+  color: #555;
+}
+
+.project-details p {
+  margin: 0.8rem 0 0 0;
+  color: #666;
+  font-style: italic;
+}
+
+.experience-item, .education-item, .award-item {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  border-left: 4px solid #0077b6;
+}
+
+.experience-item h3, .education-item h3, .award-item h3 {
+  color: #0077b6;
+  margin: 0 0 0.5rem 0;
+}
+
+.company, .period, .institution {
+  color: #666;
+  font-weight: 500;
+  margin: 0.3rem 0;
+}
+
+.contact-info {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.contact-info p {
+  margin: 0.5rem 0;
+}
+
+.cover-letter {
+  background: #e3f2fd;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #0077b6;
+}
+
+.cover-letter h3 {
+  color: #0077b6;
+  margin: 0 0 1rem 0;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #0077b6;
+  color: #fff;
+  margin-top: 2rem;
+  border-radius: 0 0 12px 12px;
+}
+
+.theme-toggle {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: #e0e0e0;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  z-index: 10;
+}
+.theme-toggle:hover {
+  background: #caf0f8;
+}
+
+body.dark {
+  background: #181a1b;
+  color: #e0e0e0;
+}
+body.dark header,
+body.dark main {
+  background: #23272a;
+  color: #e0e0e0;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+}
+body.dark nav {
+  background: #222831;
+}
+body.dark nav a {
+  color: #e0e0e0;
+}
+body.dark nav a:hover {
+  color: #00b4d8;
+}
+body.dark .profile-img {
+  border-color: #00b4d8;
+}
+body.dark .tagline {
+  color: #00b4d8;
+}
+body.dark .skills li {
+  background: #222831;
+  color: #00b4d8;
+}
+body.dark .portfolio-item {
+  background: #23272a;
+  color: #e0e0e0;
+}
+body.dark .experience-item,
+body.dark .education-item,
+body.dark .award-item,
+body.dark .about-item,
+body.dark .contact-info,
+body.dark .cover-letter {
+  background: #23272a;
+  color: #e0e0e0;
+  border-left-color: #00b4d8;
+}
+body.dark .about-item h3,
+body.dark .experience-item h3,
+body.dark .education-item h3,
+body.dark .award-item h3,
+body.dark .cover-letter h3 {
+  color: #00b4d8;
+}
+body.dark .project-details h4 {
+  color: #00b4d8;
+}
+body.dark footer {
+  background: #222831;
+  color: #e0e0e0;
+}
+
+@media (max-width: 900px) {
+  main {
+    margin-top: 38px;
+    min-height: calc(100vh - 38px);
+  }
+  .browser-window {
+    max-width: 99vw;
+    border-radius: 0;
+    min-height: 300px;
+    max-height: calc(99vh - 38px);
+  }
+  .browser-bar, .browser-bar .drag-btn {
+    cursor: default;
+  }
+}
+@media (max-width: 600px) {
+  main {
+    align-items: flex-end;
+    padding: 0.5rem 0 0.5rem 0;
+    margin-top: 44px;
+    min-height: calc(100vh - 44px);
+  }
+  .browser-window {
+    max-width: 100vw;
+    border-radius: 18px 18px 0 0;
+    margin: 0 2px 0 2px;
+    min-height: 60vh;
+    max-height: calc(100vh - 54px - 44px);
+    z-index: 200;
+    box-shadow: 0 -8px 32px 0 rgba(30,30,30,0.22);
+    animation: windowMobileSlideUp 0.5s cubic-bezier(.4,1.4,.6,1) 1;
+  }
+  @keyframes windowMobileSlideUp {
+    from { transform: translateY(60px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  .browser-content {
+    padding: 0.7rem 0.2rem 0.7rem 0.2rem;
+    max-height: calc(100vh - 38px - 54px - 44px);
+    font-size: 1.04em;
+  }
+  .browser-bar {
+    height: 54px;
+    padding: 0 0.7rem;
+    font-size: 1.18em;
+    border-radius: 18px 18px 0 0;
+  }
+  .browser-bar .window-btn {
+    display: none !important;
+  }
+  .browser-bar .drag-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 1.3em;
+    margin-right: 12px;
+  }
+  .browser-favicon {
+    width: 28px;
+    height: 28px;
+    margin-right: 1rem;
+    margin-left: 0.7rem;
+  }
+  .browser-address {
+    font-size: 1.08em;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+  }
+  .ubuntu-dock {
+    flex-direction: row;
+    width: 100vw;
+    height: 54px;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem 0;
+    gap: 0.7rem;
+    background: rgba(30, 30, 30, 0.98);
+    justify-content: center;
+    align-items: center;
+    z-index: 101;
+    box-shadow: 0 -2px 16px 0 rgba(30,30,30,0.18);
+    backdrop-filter: blur(6px);
+  }
+  .ubuntu-dock .dock-icon {
+    margin: 0 0.2rem;
+    width: 52px;
+    height: 52px;
+    font-size: 2rem;
+    transition: transform 0.15s, opacity 0.15s;
+  }
+  .ubuntu-dock .dock-icon:active {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+}
+
+.browser-window {
+  width: 100%;
+  max-width: 980px;
+  min-height: 400px;
+  max-height: calc(95vh - 38px);
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 12px 48px 0 rgba(30,30,30,0.22);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  position: relative;
+  transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s, width 0.3s, height 0.3s;
+  animation: windowFadeIn 0.7s cubic-bezier(.4,1.4,.6,1) 1;
+}
+
+@keyframes windowFadeIn {
+  from { opacity: 0; transform: translate(-50%, -60%) scale(0.95); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.browser-window.minimized {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 100%) scale(0.7);
+}
+
+.browser-window.maximized {
+  width: 99vw !important;
+  height: 98vh !important;
+  max-width: 100vw;
+  max-height: 100vh;
+  border-radius: 0;
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.01);
+  transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s, width 0.3s, height 0.3s;
+}
+
+.browser-window.restored {
+  width: 100%;
+  max-width: 980px;
+  height: 90vh;
+  border-radius: 14px;
+  box-shadow: 0 12px 48px 0 rgba(30,30,30,0.22);
+}
+
+.browser-bar {
+  display: flex;
+  align-items: center;
+  height: 38px;
+  background: #f5f6fa;
+  border-bottom: 1.5px solid #e0e0e0;
+  padding: 0 1rem;
+  gap: 0.7rem;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+.browser-bar .drag-btn {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: #ececec;
+  border: 1px solid #d0d0d0;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  cursor: grab;
+  transition: background 0.2s;
+}
+.browser-bar .drag-btn:active {
+  background: #e0e0e0;
+}
+.browser-bar .window-btn {
+  margin-right: 5px;
+}
+.browser-favicon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  margin-right: 0.7rem;
+  margin-left: 0.5rem;
+}
+.browser-address {
+  flex: 1;
+  border: none;
+  background: #ececec;
+  border-radius: 6px;
+  padding: 0.3rem 0.8rem;
+  font-size: 1em;
+  color: #444;
+  outline: none;
+  margin-left: 0.2rem;
+}
+
+.browser-content {
+  flex: 1;
+  padding: 2.2rem 2rem 2rem 2rem;
+  overflow-y: auto;
+  max-height: calc(95vh - 38px);
+}
+
+.browser-window.bounce {
+  animation: windowBounce 0.5s cubic-bezier(.4,1.4,.6,1) 1;
+}
+@keyframes windowBounce {
+  0% { transform: translate(-50%, 100%) scale(0.7); opacity: 0; }
+  60% { transform: translate(-50%, -48%) scale(1.04); opacity: 1; }
+  80% { transform: translate(-50%, -52%) scale(0.98); }
+  100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+#dockBrowser.active, #dockBrowser:active {
+  background: #e95420;
+  color: #fff;
+}
+
+.custom-context-menu {
+  position: fixed;
+  z-index: 9999;
+  min-width: 160px;
+  background: #23272a;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(30,30,30,0.18);
+  padding: 0.3rem 0;
+  font-size: 1.05em;
+  display: none;
+  animation: fadeInMenu 0.18s;
+}
+.custom-context-menu.active {
+  display: block;
+}
+.custom-context-menu .menu-item {
+  padding: 0.7em 1.2em;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.custom-context-menu .menu-item:hover {
+  background: #e95420;
+  color: #fff;
+}
+@keyframes fadeInMenu {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: scale(1); }
+} 
